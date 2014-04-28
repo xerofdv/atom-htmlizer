@@ -1,0 +1,14 @@
+{
+  "name": "atom-htmlizer",
+  "main": "./lib/atom-htmlizer",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "activationEvents": ["atom-htmlizer:make-bold"],
+  "repository": "https://github.com/atom/atom-htmlizer",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+  }
+}
