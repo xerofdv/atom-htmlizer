@@ -9,31 +9,18 @@ module.exports =
     [scope] = editor.getCursorScopes()
     selection = editor.getSelectedText()
 
-    # @buffer_texts.push selection
-
     output = "<strong>#{selection}</strong>"
-
-    # console.log "buffer", @buffer_texts
 
     editor.getSelection().deleteSelectedText()
 
 
 
     if scope.match /html/
-      ranges = editor.insertText output
+      is_match = selection.match /<([^>]*)>(.*?)<\/\1>/
+      if is_match
+        ranges = editor.insertText is_match[2]
+      else
+        ranges = editor.insertText output
+
+
     editor.setSelectedBufferRanges ranges
-
-
-# AtomHtmlizerView = require './atom-htmlizer-view'
-#
-# module.exports =
-#   atomHtmlizerView: null
-#
-#   activate: (state) ->
-#     @atomHtmlizerView = new AtomHtmlizerView(state.atomHtmlizerViewState)
-#
-#   deactivate: ->
-#     @atomHtmlizerView.destroy()
-#
-#   serialize: ->
-#     atomHtmlizerViewState: @atomHtmlizerView.serialize()
