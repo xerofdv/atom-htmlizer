@@ -1,7 +1,7 @@
 {
   "name": "atom-htmlizer",
   "main": "./lib/atom-htmlizer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "HTMLizer is a tool simply captures basic Bold, Italic and Underline keys.",
   "activationEvents": [
     "atom-htmlizer:toggle-bold",
