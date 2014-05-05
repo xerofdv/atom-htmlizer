@@ -1,7 +1,7 @@
 {
   "name": "atom-htmlizer",
   "main": "./lib/atom-htmlizer",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A short description of your package",
   "activationEvents": [
     "atom-htmlizer:toggle-bold",
@@ -14,6 +14,5 @@
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
