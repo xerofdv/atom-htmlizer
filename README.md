@@ -35,3 +35,26 @@ It will add `font-style: italic` to CSS rule.
 
 ### Underline `CMD-U`
 It will add `text-decoration: underline` to CSS rule.
+
+## Extend and Contribute
+
+Also you can extend the package with editing `maps.coffee` file.
+
+You need to write an object like below. `activate` is the function
+explains how to wrap text, and extract is the array explains how to
+extract wrapped text back.
+
+```coffeescript
+  "bold":
+    'text\.html':
+      activate: (text)-> "<strong>#{text}</strong>"
+      extract: [/^<(strong[^>]*)>(.*?)<\/\1>$/im, 2]
+
+    'source\.gfm':
+      activate: (text)-> "**#{text}**"
+      extract: [/^(\*\*)(.*?)\1/im, 2]
+
+    'source\.css':
+      activate: (text)-> "font-weight: bold;";
+      extract: [/^font-weight:\s*bold;?$/im, '/* font-weight: bold; */']
+```
