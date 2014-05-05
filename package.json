@@ -3,7 +3,12 @@
   "main": "./lib/atom-htmlizer",
   "version": "0.0.0",
   "description": "A short description of your package",
-  "activationEvents": ["atom-htmlizer:make-bold"],
+  "activationEvents": [
+    "atom-htmlizer:toggle-bold",
+    "atom-htmlizer:toggle-italic",
+    "atom-htmlizer:toggle-underline",
+    "atom-htmlizer:toggle-image"
+  ],
   "repository": "https://github.com/atom/atom-htmlizer",
   "license": "MIT",
   "engines": {

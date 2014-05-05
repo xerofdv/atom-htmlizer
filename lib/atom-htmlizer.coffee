@@ -1,26 +1,32 @@
-# fatoya soracağım sorular var...
-module.exports =
-  # buffer_texts: []
-  activate: ->
-    atom.workspaceView.command "atom-htmlizer:make-bold", => @make_bold()
+maps = require "./maps"
 
-  make_bold: ->
+module.exports =
+
+  activate: ->
+    atom.workspaceView.command "atom-htmlizer:toggle-bold", => @toggle "bold"
+    atom.workspaceView.command "atom-htmlizer:toggle-italic", => @toggle "italic"
+    atom.workspaceView.command "atom-htmlizer:toggle-underline", => @toggle "underline"
+    atom.workspaceView.command "atom-htmlizer:toggle-image", => @toggle "image"
+
+  toggle: (type)->
     editor = atom.workspace.getActiveEditor()
+
     [scope] = editor.getCursorScopes()
     selection = editor.getSelectedText()
+    typeScope = maps[type]
 
-    output = "<strong>#{selection}</strong>"
+    for own scopeText, options of typeScope
+      if scope.match new RegExp scopeText
+        found = options
+
+    return unless found
+
+    {activate, extract} = found
+    [matcher, index] = extract
 
     editor.getSelection().deleteSelectedText()
 
-
-
-    if scope.match /html/
-      is_match = selection.match /<([^>]*)>(.*?)<\/\1>/
-      if is_match
-        ranges = editor.insertText is_match[2]
-      else
-        ranges = editor.insertText output
-
-
+    is_match = selection.match matcher
+    console.log is_match, selection, matcher
+    ranges = editor.insertText(if is_match then (is_match[index] or index) else activate selection)
     editor.setSelectedBufferRanges ranges
