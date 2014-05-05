@@ -9,7 +9,7 @@
     "atom-htmlizer:toggle-underline",
     "atom-htmlizer:toggle-image"
   ],
-  "repository": "https://github.com/atom/atom-htmlizer",
+  "repository": "https://github.com/webBoxio/atom-htmlizer",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
