@@ -7,10 +7,10 @@
 
 # For more detailed documentation see
 # https://atom.io/docs/latest/advanced/keymaps
-# '.workspace':
-#   'ctrl-alt-o': 'atom-htmlizer:toggle'
+#'atom-workspace':
+#  'ctrl-alt-o': 'atom-htmlizer:toggle'
 'atom-text-editor':
-  'cmd-b': 'atom-htmlizer:toggle-bold'
-  'cmd-i': 'atom-htmlizer:toggle-italic'
-  'cmd-u': 'atom-htmlizer:toggle-underline'
-  'cmd-shift-i': 'atom-htmlizer:toggle-image'
+  'ctrl-alt-b': 'atom-htmlizer:toggle-bold'
+  'ctrl-alt-i': 'atom-htmlizer:toggle-italic'
+  'ctrl-alt-u': 'atom-htmlizer:toggle-underline'
+  'ctrl-alt-shift-i': 'atom-htmlizer:toggle-image'
