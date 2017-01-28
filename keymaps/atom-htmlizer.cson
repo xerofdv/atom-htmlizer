@@ -9,7 +9,7 @@
 # https://atom.io/docs/latest/advanced/keymaps
 # '.workspace':
 #   'ctrl-alt-o': 'atom-htmlizer:toggle'
-'.editor':
+'atom-text-editor':
   'cmd-b': 'atom-htmlizer:toggle-bold'
   'cmd-i': 'atom-htmlizer:toggle-italic'
   'cmd-u': 'atom-htmlizer:toggle-underline'
