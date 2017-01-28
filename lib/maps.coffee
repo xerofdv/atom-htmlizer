@@ -3,6 +3,10 @@ module.exports =
     'text\.html':
       activate: (text)-> "<strong>#{text}</strong>"
       extract: [/^<(strong[^>]*)>(.*?)<\/\1>$/im, 2]
+      
+    'source\.py':
+      activate: (text)-> "<b>#{text}</b>"
+      extract: [/^<(b[^>]*)>(.*?)<\/\1>$/im, 2]
 
     'source\.gfm':
       activate: (text)-> "**#{text}**"
@@ -17,6 +21,10 @@ module.exports =
       activate: (text)-> "<em>#{text}</em>"
       extract: [/^<(em[^>]*)>(.*?)<\/\1>$/im, 2]
 
+    'source\.py':
+      activate: (text)-> "<u>#{text}</u>"
+      extract: [/^<(u[^>]*)>(.*?)<\/\1>$/im, 2]
+      
     'source\.gfm':
       activate: (text)-> "*#{text}*"
       extract: [/^(\*)(.*?)\1/, 2]
@@ -27,6 +35,10 @@ module.exports =
 
   "underline":
     'text\.html':
+      activate: (text)-> "<u>#{text}</u>"
+      extract: [/^<(u[^>]*)>(.*?)<\/\1>$/im, 2]
+      
+    'source\.py':
       activate: (text)-> "<u>#{text}</u>"
       extract: [/^<(u[^>]*)>(.*?)<\/\1>$/im, 2]
 
@@ -40,6 +52,10 @@ module.exports =
 
   "image":
     'text\.html':
+      activate: (text)-> "<img src=\"#{text}\" alt=\"\">"
+      extract: [/^<img[^>]*src="([^>\"]+)"[^>]*\/?>$/, 1]
+      
+    'source\.py':
       activate: (text)-> "<img src=\"#{text}\" alt=\"\">"
       extract: [/^<img[^>]*src="([^>\"]+)"[^>]*\/?>$/, 1]
 
