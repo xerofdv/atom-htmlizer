@@ -3,13 +3,17 @@ maps = require "./maps"
 module.exports =
 
   activate: ->
-    atom.workspaceView.command "atom-htmlizer:toggle-bold", => @toggle "bold"
-    atom.workspaceView.command "atom-htmlizer:toggle-italic", => @toggle "italic"
-    atom.workspaceView.command "atom-htmlizer:toggle-underline", => @toggle "underline"
-    atom.workspaceView.command "atom-htmlizer:toggle-image", => @toggle "image"
+    @disposables.add atom.commands.add 'atom-workspace',
+    "atom-htmlizer:toggle-bold" => @toggle "bold"
+    @disposables.add atom.commands.add 'atom-workspace',
+    "atom-htmlizer:toggle-italic" => @toggle "italic"
+    @disposables.add atom.commands.add 'atom-workspace',
+    "atom-htmlizer:toggle-underline" => @toggle "underline"
+    @disposables.add atom.commands.add 'atom-workspace',
+    "atom-htmlizer:toggle-image" => @toggle "image"
 
   toggle: (type)->
-    editor = atom.workspace.getActiveEditor()
+    editor = atom.workspace.getActiveTextEditor()
 
     [scope] = editor.getCursorScopes()
     selection = editor.getSelectedText()
