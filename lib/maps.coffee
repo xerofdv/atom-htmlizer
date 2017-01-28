@@ -3,6 +3,10 @@ module.exports =
     'text\.html':
       activate: (text)-> "<strong>#{text}</strong>"
       extract: [/^<(strong[^>]*)>(.*?)<\/\1>$/im, 2]
+      
+    'text\.py':
+      activate: (text)-> "<strong>#{text}</strong>"
+      extract: [/^<(strong[^>]*)>(.*?)<\/\1>$/im, 2]
 
     'source\.gfm':
       activate: (text)-> "**#{text}**"
@@ -16,6 +20,10 @@ module.exports =
     'text\.html':
       activate: (text)-> "<em>#{text}</em>"
       extract: [/^<(em[^>]*)>(.*?)<\/\1>$/im, 2]
+      
+    'text\.py':
+      activate: (text)-> "<em>#{text}</em>"
+      extract: [/^<(i[^>]*)>(.*?)<\/\1>$/im, 2]
 
     'source\.gfm':
       activate: (text)-> "*#{text}*"
@@ -29,6 +37,10 @@ module.exports =
     'text\.html':
       activate: (text)-> "<u>#{text}</u>"
       extract: [/^<(u[^>]*)>(.*?)<\/\1>$/im, 2]
+      
+    'text\.py':
+      activate: (text)-> "<u>#{text}</u>"
+      extract: [/^<(u[^>]*)>(.*?)<\/\1>$/im, 2]
 
     'source\.gfm':
       activate: (text)-> "_#{text}_"
@@ -40,6 +52,10 @@ module.exports =
 
   "image":
     'text\.html':
+      activate: (text)-> "<img src=\"#{text}\" alt=\"\">"
+      extract: [/^<img[^>]*src="([^>\"]+)"[^>]*\/?>$/, 1]
+    
+    'text\.py':
       activate: (text)-> "<img src=\"#{text}\" alt=\"\">"
       extract: [/^<img[^>]*src="([^>\"]+)"[^>]*\/?>$/, 1]
 
